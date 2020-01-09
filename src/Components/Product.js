@@ -20,7 +20,7 @@ class Product extends React.Component {
               <Link to="/details">
                 <img
                   src={img}
-                  style={{ width: "50rem", height: "50rem" }}
+                  style={{ width: "20rem", height: "20rem" }}
                   alt="product"
                   className="card-img-top"
                 ></img>
