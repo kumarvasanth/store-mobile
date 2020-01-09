@@ -8,39 +8,36 @@ class Product extends React.Component {
   render() {
     const { id, title, img, price, inCart } = this.props.product;
     return (
-      <ProductWrapper className="card">
+      <ProductWrapper className=" col-9 mx-auto col-md-6 col-lg-3">
         <ProductConsumer>
           {value => (
-            <div
-              className="img-container p-5"
-              onClick={() => {
-                value.handleDetail(id);
-              }}
-            >
-              <Link to="/details">
-                <img
-                  src={img}
-                  style={{ width: "5rem", height: "5rem" }}
-                  alt="product"
-                  className="card-img-top"
-                ></img>
-              </Link>
-              <button
-                className="cart-btn"
-                disabled={inCart ? true : false}
+            <div className="card">
+              <div
+                className="img-container p-5"
                 onClick={() => {
-                  value.addtoCart(id);
-                  value.modalOpen(id);
+                  value.handleDetail(id);
                 }}
               >
-                {inCart ? (
-                  <p className="text-capitalize mb=0" disabled>
-                    in cart
-                  </p>
-                ) : (
-                  <i className="fas fa-cart-plus"></i>
-                )}
-              </button>
+                <Link to="/details">
+                  <img src={img} alt="product" className="card-img-top"></img>
+                </Link>
+                <button
+                  className="cart-btn"
+                  disabled={inCart ? true : false}
+                  onClick={() => {
+                    value.addtoCart(id);
+                    value.modalOpen(id);
+                  }}
+                >
+                  {inCart ? (
+                    <p className="text-capitalize mb=0" disabled>
+                      in cart
+                    </p>
+                  ) : (
+                    <i className="fas fa-cart-plus"></i>
+                  )}
+                </button>
+              </div>
             </div>
           )}
         </ProductConsumer>
